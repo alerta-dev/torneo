@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concurso - Lista de Participantes</title>
+  <style>
+    /* Reinicio básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      min-height: 100vh;
+      /* Background con gif en bucle */
+      background: url('ruta-del-gif.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+    
+    /* Overlay para aplicar desenfoque */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+    
+    /* Contenedor principal */
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Cada participante */
+    .participant {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .participant:last-child {
+      border-bottom: none;
+    }
+    
+    /* Foto de perfil con imagen adaptable */
+    .profile-photo {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    /* Logo de categoría en la esquina superior derecha */
+    .category-logo {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: #fff;
+    }
+    
+    /* Detalles del participante */
+    .participant-details {
+      flex: 1;
+    }
+    
+    .name {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .score {
+      font-size: 0.95em;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Icono de información */
+    .info-icon {
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #007BFF;
+    }
+    
+    /* Contenedor de la explicación de la puntuación */
+    .score-info {
+      display: none;
+      margin-top: 5px;
+      padding: 8px;
+      background: #f1f1f1;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #555;
+      line-height: 1.3;
+    }
+    
+    /* Icono de YouTube */
+    .youtube-icon {
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 1.5em;
+      color: #FF0000;
+    }
+    
+    /* Adaptación para pantallas pequeñas */
+    @media (max-width: 600px) {
+      .participant {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .youtube-icon {
+        margin-top: 8px;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Participante 1 -->
+    <div class="participant">
+      <!-- Foto de perfil con logo de categoría -->
+      <div class="profile-photo">
+        <img src="foto-perfil1.jpg" alt="Foto de perfil">
+        <img class="category-logo" src="logo-categoria1.png" alt="Logo Categoría">
+      </div>
+      <!-- Detalles del participante -->
+      <div class="participant-details">
+        <div class="name">Nombre del Participante</div>
+        <div class="score">
+          Puntuación: 95
+          <!-- Icono de información -->
+          <span class="info-icon" onclick="toggleInfo(this)">ℹ️</span>
+        </div>
+        <!-- Contenedor de información que se extiende según el contenido -->
+        <div class="score-info">
+          La puntuación se debe a la creatividad y ejecución impecable en la presentación.
+        </div>
+      </div>
+      <!-- Icono de YouTube que abre el video en una nueva ventana -->
+      <a href="https://www.youtube.com/watch?v=videoID1" target="_blank">
+        <span class="youtube-icon">▶️</span>
+      </a>
+    </div>
+    
+    <!-- Participante 2 -->
+    <div class="participant">
+      <div class="profile-photo">
+        <img src="foto-perfil2.jpg" alt="Foto de perfil">
+        <img class="category-logo" src="logo-categoria2.png" alt="Logo Categoría">
+      </div>
+      <div class="participant-details">
+        <div class="name">Otro Participante</div>
+        <div class="score">
+          Puntuación: 88
+          <span class="info-icon" onclick="toggleInfo(this)">ℹ️</span>
+        </div>
+        <div class="score-info">
+          Su puntuación refleja un enfoque innovador y un compromiso constante con el proyecto.
+        </div>
+      </div>
+      <a href="https://www.youtube.com/watch?v=videoID2" target="_blank">
+        <span class="youtube-icon">▶️</span>
+      </a>
+    </div>
+    
+    <!-- Agrega más participantes de forma similar -->
+    
+  </div>
+  
+  <script>
+    // Función para mostrar u ocultar el texto informativo
+    function toggleInfo(icon) {
+      const infoContainer = icon.parentElement.nextElementSibling;
+      infoContainer.style.display = infoContainer.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
