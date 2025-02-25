@@ -104,15 +104,7 @@ body::before {
 }
 
 /* Foto de perfil y logo de categoría */
-.profile-photo {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  margin-right: 20px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
+
 
 .profile-photo img {
   width: 100%;
